@@ -74,7 +74,7 @@ public class User_service {
         return CreateID();
     }
     static String ShowData(User_Details user){
-        return "ID: "+user.getID()+ " Email: "+user.getEmail()+" PIN: "+user.getPIN()+ " Account number: "+user.getAccount_number();
+        return "ID: "+user.getID()+ " Email: "+user.getEmail()+" Account number: "+user.getAccount_number();
     }
     static void Menu_Operation(Operations op,User_Details user,Scanner sc){
         System.out.println("you do operations here , deposit , withdrawal and show amount ");
@@ -103,7 +103,7 @@ public class User_service {
                 System.out.println( op.getValues());
                 break;
             case (4):
-                op.getBalance();
+                System.out.println(op.getBalance());
                 break;
         }
             choice=sc.nextInt();
@@ -180,7 +180,6 @@ public class User_service {
         String email=sc.next();
         System.out.println("Enter password");
         String password=sc.next();
-        sc.close();
         return new User_Details(user_name,password,email,User_service.CreateAccountnum(),User_service.CreateID(),User_service.CreatePIN());
 
     }
