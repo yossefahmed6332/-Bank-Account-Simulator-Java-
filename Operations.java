@@ -1,4 +1,6 @@
- class Operations{
+     import java.util.ArrayList;
+
+    class Operations{
 
 
 
