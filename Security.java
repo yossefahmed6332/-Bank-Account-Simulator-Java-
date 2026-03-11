@@ -13,12 +13,16 @@ public class Security {
     boolean check_Withdraw(double amount,double balance){
          return amount >=0 && amount <=balance;
     }
-    boolean check_Deposit(double amount,double balance){
+    boolean check_Deposit(double amount){
          return amount >=0;
     }
-    boolean Repeated (String checked){
-        for (int i=0; i<User_Details.users.size(); i++)
-            if (checked.equals(User_Details.users.get(i).getAccount_number()))return true;
+    boolean Repeated (String checked,UsersRepo repository){//check if any checked
+        for (int i=0; i< repository.getSize(); i++){
+            if (checked.equals(repository.getUser(checked).getAccount_number()))return true;
+            if (checked.equals(repository.getUser(checked).getPIN()))return true;
+            if (checked.equals(repository.getUser(checked).getID()))return true;
+            if (checked.equals(repository.getUser(checked).getUsername()))return true;
+        }
         return false;
 
     }
