@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Admin extends User{
-     Admin(String ID, String username,String email, String password, Address address)
+     Admin(Scanner sc,String ID, String username, String email, String password,Security sec)
     {
-        super(ID,username,email,password,address);
+        super(sc,ID,username,email,password);
     }
 
 }
