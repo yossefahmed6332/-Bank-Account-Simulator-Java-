@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Security {
 
     //methods to check PIN , password
-     boolean CheckPassword(String Password,User_Details user){
+     static boolean CheckPassword(String Password,User_Details user){
         return Password. equals(user.getPassword());
     }
      boolean CheckPIN (String PIN , User_Details user){
@@ -11,13 +11,13 @@ public class Security {
     }
 
     //methods for check amount
-    boolean check_Withdraw(double amount,double balance){
+    static boolean check_Withdraw(double amount,double balance){
          return amount >=0 && amount <=balance;
     }
-    boolean check_Deposit(double amount){
+    static boolean check_Deposit(double amount){
          return amount >=0;
     }
-    boolean Repeated(String checked, UsersRepo repository) {
+    static boolean Repeated(String checked, UsersRepo repository) {
 
         for (User_Details user : repository.getUsers()) {
             if (checked.equals(user.getAccount_number())) return true;
@@ -28,6 +28,6 @@ public class Security {
 
         return false;
     }
-  
+
 
 }
