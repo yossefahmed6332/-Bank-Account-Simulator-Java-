@@ -1,8 +1,8 @@
   import java.util.Scanner;
 
-    public class User_service {
-        //change password
-         void ChangePassword(User_Details user , String oldpassword,String newPassword,Security sec){
+     class User_service {
+        //change methods
+         static void ChangePassword(User_Details user , String oldpassword,String newPassword,Security sec){
             if(!sec.CheckPassword(oldpassword,user)){
                 System.out.println("Wrong password");
                 return;
@@ -10,22 +10,22 @@
             user.setPassword(newPassword);
         }
 
-         void ChangeUsername(User_Details user,String new_username,String oldpassword,Security sec) {
+         static void ChangeUsername(User_Details user,String new_username,String oldpassword,Security sec) {
             if(!sec.CheckPassword(oldpassword,user)){
                 System.out.println("Wrong password");
                 return;
             }
-            user.setUsername(new_username);
+            user.setUserName(new_username);
         }
 
-         void ChangeEmail(User_Details user,String NewEmail,String OldPassword,Security sec) {
+        static void ChangeEmail(User_Details user,String NewEmail,String OldPassword,Security sec) {
             if(!sec.CheckPassword(OldPassword,user)){
                 System.out.println("Wrong password");
                 return;
             }
             user.setEmail(NewEmail);
         }
-         void ChangePIN(User_Details user,String PIN,String oldpassword,Security sec) {
+        static void ChangePIN(User_Details user,String PIN,String oldpassword,Security sec) {
             if(!sec.CheckPassword(oldpassword,user)){
                 System.out.println("Wrong password");
                 return;
@@ -36,9 +36,9 @@
 
         //Create account num
 
-         String CreateAccountnum(Security sec,UsersRepo repo){
+         static String CreateAccountnum(Security sec,UsersRepo repo){
             String accountnum="";
-            for(int i =0 ; i<6; i++){
+            for(int i =0 ; i<13; i++){
                 double num=(Math.random()*10);
                 int numInt=(int)num;
                 accountnum+=numInt;
@@ -47,9 +47,9 @@
             return CreateAccountnum(sec,repo);
         }
         //Create PIN
-         String CreatePIN(Security sec,UsersRepo repo){
+         static String CreatePIN(Security sec,UsersRepo repo){
             String PIN="";
-            for(int i =0 ; i<3; i++){
+            for(int i =0 ; i<6; i++){
                 double num=(Math.random()*10);
                 int numInt=(int)num;
                 PIN+=numInt;
@@ -58,9 +58,9 @@
             return CreatePIN(sec,repo);
         }
 
-         String CreateID(Security sec,UsersRepo repo) {
+         static String CreateID(Security sec,UsersRepo repo) {
             String ID = "";
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 6; i++) {
                 double num = (Math.random() * 10);
                 int numInt = (int) num;
                 ID += numInt;
@@ -73,21 +73,22 @@
         }
 
 
-         User_Details CreateUser(Scanner sc,User_service userService,Security sec,UsersRepo repository,UsersRepo repo){
+         static User_Details CreateUser(String user_name,String email,String password,User_service userService,Security sec,User user,UsersRepo repo){
             System.out.println("Welcome to Bank account simulator,In first enter your data");
             System.out.println("Enter username");
-            String user_name=sc.next();
             System.out.println("Enter email");
-            String email=sc.next();
             System.out.println("Enter password");
-            String password=sc.next();
-            User_Details newUser=new User_Details(user_name,password,email,
-                    userService.CreateAccountnum(sec,repo),userService.CreateID(sec,repo),userService.CreatePIN(sec,repo));
-            repository.addUser(newUser);
+            User_Details newUser=new User_Details(userService.CreateAccountnum(sec,repo),userService.CreatePIN(sec,repo),userService.CreateID(sec,repo)
+                    ,email,password,user_name);
+             repo.addUser(newUser);
             return newUser;
 
     }
 
+    static void getTransactions(User_Details user){
+             user.getTransactions();
+
+    }
 
 
 }
