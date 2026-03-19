@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-import java.util.Scanner;
-
+//class for Admin , is for admin attributes
 public class Admin extends User{
-     Admin(Scanner sc,String ID, String username, String email, String password,Security sec)
+     Admin(String ID, String username, String email, String password)
     {
-        super(sc,ID,username,email,password);
+        super(ID,username,email,password);
     }
 
 }
