@@ -6,8 +6,7 @@ public class Transaction {
     private Double amount;
     private LocalDateTime time;
     public Transaction( String operation, Double amount,User_Details user) {
-        user.newTransaction();
-        this.ID =user.getID()+user.getNumOFtransactions();
+        this.ID =user.getID();
         this.operation = operation;
         this.amount = amount;
         this.time = LocalDateTime.now();
