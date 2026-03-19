@@ -1,6 +1,4 @@
-      import java.util.Scanner;
-
-     class User_service {
+class User_service {
         //change methods
 
          //change password take password ,new password and  user
@@ -47,27 +45,25 @@
                 int numInt=(int)num;
                 accountnum+= numInt;
             }
-             
+
              }while (Security.Repeated_Accnum(accountnum,repo));
             return accountnum;
         }
         //Create PIN
 
          //create PIN for user
-         static String CreatePIN(UsersRepo repo){
+         static String CreatePIN(UsersRepo repo) {
              String PIN;
-             do{
-             PIN="";//set initial value for PIN
-            for(int i =0 ; i<6; i++){//every loop add one more number , total numbers is 7
-                double num=(Math.random()*10);//Create random for 0 to .9 and multiply by 10
-                int numInt=(int)num;//turn it to integer , clean .00
-                PIN+=numInt;//add number to PIN
-            }
-             }while(Security.Repeated_Accnum(PIN,repo));
+             do {
+                 PIN = "";
+                 for (int i = 0; i < 6; i++) {
+                     int numInt = (int) (Math.random() * 10);
+                     PIN += numInt;
+                 }
+             } while (Security.Repeated_PIN(PIN, repo));
 
-            return PIN;//check if PIN is equal to another user PIN ,if recreate PIN
-        }
-
+             return PIN;
+         }
          static String CreateID(UsersRepo repo) {
              String ID;
              do{
