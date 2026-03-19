@@ -3,20 +3,18 @@ import java.util.ArrayList;
 class User_Details extends User{
     private String accountNumber;
     private String PIN;
-    private int numOFTransactions;
     private double balance ;
     private ArrayList<Transaction> transactions;
 
 
 
     //using constractor to initial user details
-    public User_Details(String account_number,String PIN,String ID,String email,String password,String userName,Address address){//dafault set , all is uknown
+    public User_Details( String account_number, String PIN, String ID, String email, String password, String userName){//default set , all is unknown
+        super(ID,userName,email,password);
         this.accountNumber = account_number;
         this.PIN = PIN;
-        this.numOFTransactions = 0;
         this.balance = 0;
         transactions=new ArrayList<>();
-        super(ID,userName,email,password,address);
 
     }
 
@@ -25,14 +23,10 @@ class User_Details extends User{
     public void setPIN(String PIN) {//set PIN
 
         this.PIN = PIN;
-        System.out.println("PIN changed successfully");
 
     }
 
-     void newTransaction() {
-        numOFTransactions++;
 
-    }
     void AddTransaction(Transaction transaction) {
         transactions.add(transaction);
     }
@@ -46,17 +40,11 @@ class User_Details extends User{
 
     }
 
-    int getNumOFtransactions() {
-        return numOFTransactions;
-    }
+
     double getBalance() {
         return balance;
     }
-    void ShowTransactions() {
-        for (int i = 0; i < transactions.size(); i++) {
-            System.out.println(transactions.get(i).showDetails());
-        }
-    }
+
     void decrease  (double amount ){
         this.balance-=amount;
 
@@ -64,6 +52,16 @@ class User_Details extends User{
     void increase (double amount){
         this.balance+=amount;
 
+    }
+    void getTransactions() {
+        for (int i = 0; i < transactions.size(); i++) {
+            System.out.println(transactions.get(i).showDetails());
+            System.out.println("\n");
+        }
+    }
+    String display(){
+        return "Account Number: "+accountNumber+" \nBalance: "+balance+"" +
+                " \nUsername: "+this.getUserName()+"\nemail: "+this.getEmail();
     }
 
 
