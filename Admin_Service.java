@@ -1,35 +1,31 @@
+//Admin service for Admin only
 public class Admin_Service {
-    //Admin service
-    static void getUser_ByID(String ID,UsersRepo rep){
-        User_Details user=rep.GetUser_ID(ID);
+
+    static String getUser_ByID(String ID,UsersRepo rep){//show user details by ID
+        User_Details user=rep.getUser_ByID(ID);
         if(user!=null){
-            System.out.println(user.toString());
+            return user.display();
         }
         else  {
-            System.out.println("User not found");
+            return "user not found";
         }
     }
-    static void getUser_ByUsername(String username,UsersRepo rep){
-        User_Details user=rep.GetUser_UserName(username);
+    static String getUser_ByUsername(String username,UsersRepo rep){
+        User_Details user=rep.getUser_ByUserName(username);
         if(user!=null){
-            System.out.println(user.toString());
+            return user.display();
         }
         else  {
-            System.out.println("User not found");
+            return "user not found";
         }
     }
-    static void getUser_ByEmail(String email,UsersRepo rep){
-        User_Details user=rep.GetUser_Email(email);
+    static String getUser_ByEmail(String email,UsersRepo rep){
+        User_Details user=rep.getUser_ByEmail(email);
         if(user!=null){
-            System.out.println(user.toString());
+            return user.display();
         }
         else  {
-            System.out.println("User not found");
-        }
-    }
-    static void getAll_users(UsersRepo rep){
-        for(User_Details user:rep.getUsers()){
-            System.out.println(user.toString());
+            return "user not found";
         }
     }
     static void removeUser(String ID,UsersRepo rep){
