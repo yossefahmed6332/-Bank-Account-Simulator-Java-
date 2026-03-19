@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class User {
     private String ID;
@@ -7,8 +5,7 @@ public class User {
     private String email;
     private String password;
     //constructor
-    User(){}
-    User(Scanner sc,String ID, String userName, String email, String password) {
+    User(String ID, String userName, String email, String password) {
         this.ID = ID;
         this.userName = userName;
         this.email = email;
@@ -41,4 +38,3 @@ public class User {
         return this.password;
     }
 }
-   
