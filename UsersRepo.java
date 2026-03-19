@@ -17,33 +17,33 @@ public class UsersRepo {
           }
           return null;
     }
-    User_Details GetUser_ID(String userID) {//find user index by user's ID
+    User_Details getUser_ByID(String userID) {//find user index by user's ID
         for (User_Details user : users) {
             if (user.getID().equals(userID)) return users.get(users.indexOf(user));
         }
         return null;
     }
-    User_Details GetUser_Email(String userEmail) {//get user index by user's Email
+    User_Details getUser_ByEmail(String userEmail) {//get user index by user's Email
           for (User_Details user : users) {
               if (user.getEmail().equals(userEmail)) return users.get(users.indexOf(user));
           }
           return null;
     }
-    User_Details GetUser_Accountnumber(String userAccountNumber) {//get user index by user's account number
+    User_Details getUser_ByAccountnumber(String userAccountNumber) {//get user index by user's account number
           for (User_Details user : users) {
               if (user.getAccount_number().equals(userAccountNumber)) return users.get(users.indexOf(user));
           }
           return null;
     }
-    User_Details GetUser_UserName(String userName) {
+    User_Details getUser_ByUserName(String userName) {
           for (User_Details user:users){
               if(user.getUserName().equals(userName)) return users.get(users.indexOf(user));
           }
           return null;
     }
     void deleteUser(String userID){//delete user , get user by ID
-          if(GetUser_ID(userID) == null)return;
-          users.remove(GetUser_ID(userID));
+          if(getUser_ByID(userID) == null)return;
+          users.remove(getUser_ByID(userID));
     }
     void addUser(User_Details user){//add user
           users.add(user);
