@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Security {
 
@@ -11,11 +10,11 @@ public class Security {
     }
 
     //methods for check amount
-    static boolean check_Withdraw(double amount,double balance){
-         return amount >=0 && amount <=balance;
+    static boolean check_Withdraw(double amount, double balance) {
+        return amount > 0 && amount <= balance;
     }
-    static boolean check_Deposit(double amount){
-         return amount >=0;
+    static boolean check_Deposit(double amount) {
+        return amount > 0;
     }
     static boolean Repeated_Accnum(String checked, UsersRepo repository) {
 
